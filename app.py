@@ -207,9 +207,11 @@ for balk in balken_header.keys():
     for number in balken_header[balk].keys():
         print('-'*50)
         print('number', number, balk)
+
         if number != 'position_vector':
             position_wapening = balken_header[balk][number]['position_vector']
             position_header = balken_header[balk]['position_vector']
+            lengths_remove = list()
             for count, length in enumerate(balken_detail_lengths):
                 print('lengths', balken_detail_lengths)
                 print('checking length', length[0])
@@ -223,12 +225,11 @@ for balk in balken_header.keys():
                     if 'lengths' not in balken_header[balk][number].keys():
                         balken_header[balk][number]['lengths'] = list()
                     logging.info(f'adding {length[0]} to {balk}')
-                    del balken_detail_lengths[count]
+                    lengths_remove.append(balken_detail_lengths[count])
                     balken_header[balk][number]['lengths'].append(length)
                     #TODO something wrong for beugels length checks
-                    # something wrong with wapening 2????
-                    # deleting here causes to skip because count keeps running
-
+                    # deleting from list here causes to skip because count keeps running
+            balken_detail_lengths = [i for i in balken_detail_lengths if i not in lengths_remove]
 pprint(balken_header)
 pprint(balken_detail_lengths)
 
