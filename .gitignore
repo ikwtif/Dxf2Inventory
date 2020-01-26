@@ -1,0 +1,7 @@
+*.bak
+/venv
+test.dwg
+test?.dwg
+test*.dxf
+*.bak
+test*.py
