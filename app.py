@@ -213,8 +213,6 @@ for balk in balken_header.keys():
             position_header = balken_header[balk]['position_vector']
             lengths_remove = list()
             for count, length in enumerate(balken_detail_lengths):
-                print('lengths', balken_detail_lengths)
-                print('checking length', length[0])
                 position_length = length[1]
                 logging.info(f'checking length {length[0]} for {balk} wapening {number}')
                 if is_close_points_tolerances(position_header, position_length,
