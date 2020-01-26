@@ -5,3 +5,4 @@ test?.dwg
 test*.dxf
 *.bak
 test*.py
+*.idea
